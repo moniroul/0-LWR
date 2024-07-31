@@ -8,12 +8,33 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<Color> ColorList = [
+    Colors.green,
+    Colors.yellow,
+    Colors.blue,
+    Colors.red,
+    Colors.pink,
+  ];
+
+  List<String> ColorsNames = ["Green", "Yellow", "Blue", "Red", "Pink"];
+
+  int ColorIndex = 0;
+
+  void ColorNameChange() {
+    setState(() {
+      ColorIndex = ColorIndex + 1;
+      if (ColorIndex == 5) {
+        ColorIndex = 0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // App Bar
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 168, 240, 171),
+        backgroundColor: ColorList[ColorIndex],
         title: Text("Russell APP"),
       ),
 
@@ -22,10 +43,10 @@ class _HomeState extends State<Home> {
         color: const Color.fromARGB(255, 255, 255, 255),
         child: Center(
           child: Text(
-            " This is my First Apps Home Page",
+            "Active Color : " + ColorsNames[ColorIndex],
             style: TextStyle(
                 fontSize: 20,
-                color: const Color.fromARGB(255, 0, 0, 0),
+                color: ColorList[ColorIndex],
                 fontWeight: FontWeight.w700),
           ),
         ),
@@ -34,9 +55,9 @@ class _HomeState extends State<Home> {
       // floatingActionButton area
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("Button Clicked");
+          ColorNameChange();
         },
-        child: Icon(Icons.home),
+        child: Icon(Icons.edit),
       ),
 
       // bottomNavigationBar area
@@ -56,7 +77,6 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-
     );
   }
 }
