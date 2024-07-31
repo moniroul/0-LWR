@@ -8,6 +8,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+
+
   List<Color> ColorList = [
     Colors.green,
     Colors.yellow,
@@ -43,7 +46,7 @@ class _HomeState extends State<Home> {
         color: const Color.fromARGB(255, 255, 255, 255),
         child: Center(
           child: Text(
-            "Active Color : " + ColorsNames[ColorIndex],
+            "Active Color : " + ColorsNames[ColorIndex] + " Index ${ColorIndex}",
             style: TextStyle(
                 fontSize: 20,
                 color: ColorList[ColorIndex],
