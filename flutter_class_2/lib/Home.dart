@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_class_2/HomePage.dart';
+import 'package:flutter_class_2/PhotoPage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -8,9 +10,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-
-
   List<Color> ColorList = [
     Colors.green,
     Colors.yellow,
@@ -32,6 +31,10 @@ class _HomeState extends State<Home> {
     });
   }
 
+  List PageList = [HomePage(), PhotoPage()];
+
+  int pageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,18 +45,7 @@ class _HomeState extends State<Home> {
       ),
 
       // body area
-      body: Container(
-        color: const Color.fromARGB(255, 255, 255, 255),
-        child: Center(
-          child: Text(
-            "Active Color : " + ColorsNames[ColorIndex] + " Index ${ColorIndex}",
-            style: TextStyle(
-                fontSize: 20,
-                color: ColorList[ColorIndex],
-                fontWeight: FontWeight.w700),
-          ),
-        ),
-      ),
+      body: PageList[pageIndex],
 
       // floatingActionButton area
       floatingActionButton: FloatingActionButton(
@@ -65,20 +57,29 @@ class _HomeState extends State<Home> {
 
       // bottomNavigationBar area
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        onTap: (index) {
+          setState(() {
+            pageIndex = index;
+          });
+          print(index);
+        },
+
+        backgroundColor: Colors.white,
+        selectedItemColor: Color.fromARGB(255, 39, 151, 43),
+        unselectedItemColor: Colors.black,
+        currentIndex: pageIndex,
+
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.music_note_outlined),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.photo_sharp),
+            label: 'Photo',
           ),
         ],
+        
       ),
     );
   }
