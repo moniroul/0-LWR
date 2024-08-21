@@ -1,0 +1,10 @@
+import 'package:contact_list/Homepage.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: "Contact List",
+    home: Homepage(),
+  ));
+}

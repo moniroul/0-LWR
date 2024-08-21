@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_class/Container_row_collumn.dart';
-import 'package:flutter_widget_class/button_widget.dart';
- 
+import 'package:flutter_widget_class/ImageWidget.dart'; 
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -16,10 +14,9 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("LWR Widget Class"),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color.fromARGB(255, 93, 201, 255),
       ),
-      body: ButtonWidget(),
-     
+      body: ImageWidget(),
     );
   }
 }
