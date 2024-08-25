@@ -1,7 +1,9 @@
+import 'package:contact_list/model/userModel.dart';
 import 'package:flutter/material.dart';
 
 class ContactView extends StatelessWidget {
-  var user;
+  UserModel user;
+
   ContactView({Key? key, required this.user}) : super(key: key);
 
   @override
@@ -16,7 +18,7 @@ class ContactView extends StatelessWidget {
               Icons.arrow_back_ios_new_outlined,
               color: Colors.black,
             )),
-        title: Text("${user['username']}"),
+        title: Text("${user.name}"),
         backgroundColor: Colors.green[100],
       ),
       body: Center(
@@ -27,15 +29,15 @@ class ContactView extends StatelessWidget {
             Container(
                 height: 200,
                 width: 220,
-                child: Image.network(user["profileImage"])),
+                child: Image.network(user.profileImage!)),
             Text(
-              user['username'],
+              user.name!,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
             ),
-            Text(user['email']),
+            Text(user.email!),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(user['about']),
+              child: Text(user.about!),
             ),
           ],
         ),
