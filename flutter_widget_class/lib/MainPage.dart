@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_widget_class/ImageWidget.dart'; 
+
+import 'package:flutter/material.dart'; 
+import 'CardExample.dart'; 
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _MainPageState extends State<MainPage> {
         title: Text("LWR Widget Class"),
         backgroundColor: Color.fromARGB(255, 93, 201, 255),
       ),
-      body: ImageWidget(),
+      body: CustomCard(),
     );
   }
 }

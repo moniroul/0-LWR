@@ -1,4 +1,3 @@
- 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,28 +11,25 @@ class Homepagedb extends StatefulWidget {
 class _HomepagedbState extends State<Homepagedb> {
   TextEditingController nameController = TextEditingController();
 
-
-
   List<String> dbusers = [];
 
   userAdd() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     dbusers.add(nameController.text);
     await prefs.setStringList("user", dbusers);
+
     userGet();
   }
 
   void userGet() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> data = await prefs.getStringList("user") != null
-        ? prefs.getStringList("user")!
-        : [];
+
+    var dataget = await prefs.getStringList("user");
+
     setState(() {
-      dbusers = data;
+      dbusers = dataget != null ? dataget : [];
     });
   }
-
-  
 
   Widget UserAdd() {
     return Dialog(
@@ -57,6 +53,7 @@ class _HomepagedbState extends State<Homepagedb> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: nameController,
+                  maxLines: 10,
                   decoration: InputDecoration(
                     hintText: "Name",
                   ),
@@ -80,7 +77,6 @@ class _HomepagedbState extends State<Homepagedb> {
                     MaterialButton(
                       color: Colors.green[200],
                       onPressed: () async {
-                        // UserDataAdd();
                         await userAdd();
                         Navigator.pop(context);
                       },
