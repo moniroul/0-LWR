@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart'; 
-import 'drawer_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_widget_class/flutterTabBar.dart';
 
 void main() {
   runApp(MaterialApp(
     title: "LWR Widget Class",
     debugShowCheckedModeBanner: false,
-    home: DrawerWidget(),
+    home: TabBarExample(),
   ));
 }
