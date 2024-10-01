@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_class/carousel_Slider.dart';
-import 'CardExample.dart';
+import 'package:flutter_widget_class/alert_dialog.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
         title: Text("LWR Widget Class"),
         backgroundColor: Color.fromARGB(255, 93, 201, 255),
       ),
-      body: CarouselSliderExample(),
+      body: AlertDialogExample(),
     );
   }
 }
